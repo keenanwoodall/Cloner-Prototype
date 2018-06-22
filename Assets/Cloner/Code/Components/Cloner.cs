@@ -6,6 +6,7 @@ public abstract class Cloner : InstanceRenderer
 	public bool update = true;
 	public Mesh mesh;
 	public Material material;
+	public List<PointModifier> modifiers;
 
 	protected List<Matrix4x4> points = new List<Matrix4x4> ();
 
@@ -36,6 +37,17 @@ public abstract class Cloner : InstanceRenderer
 	public void UpdatePoints ()
 	{
 		CalculatePoints (ref points);
+		for (int i = 0; i < modifiers.Count; i++)
+		{
+			var modifier = modifiers[i];
+			if (modifier == null)
+			{
+				modifiers.RemoveAt (i);
+				i--;
+				continue;
+			}
+			points = modifiers[i].Modify (points);
+		}
 	}
 
 	private void ResizePointsList (int goalCount)
