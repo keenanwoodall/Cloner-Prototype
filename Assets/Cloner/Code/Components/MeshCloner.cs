@@ -1,0 +1,45 @@
+﻿using UnityEngine;
+using System.Collections.Generic;
+
+public abstract class MeshCloner : InstanceRenderer
+{
+	public Mesh mesh;
+	public Material material;
+
+	protected List<Matrix4x4> points = new List<Matrix4x4> ();
+
+	protected abstract int PointCount { get; }
+	protected abstract List<Matrix4x4> CalculatePoints (List<Matrix4x4> points);
+	protected abstract bool ParametersChanged ();
+
+	private void Update ()
+	{
+		if (mesh == null || material == null)
+			return;
+
+		if (PointCount != points.Count)
+			ResizePointsList (PointCount);
+
+		if (ParametersChanged ())
+			UpdatePointsInternal ();
+
+		Draw (mesh, material, points);
+	}
+
+	private void UpdatePointsInternal ()
+	{
+		points = CalculatePoints (points);
+	}
+
+	private void ResizePointsList (int goalCount)
+	{
+		var difference = goalCount - points.Count;
+
+		if (difference > 0)
+			for (int i = 0; i < difference; i++)
+				points.Add (new Matrix4x4 ());
+		else
+			while (points.Count > goalCount)
+				points.RemoveAt (points.Count - 1);
+	}
+}

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
-public abstract class Cloner : MonoBehaviour
+[ExecuteInEditMode]
+public abstract class InstanceRenderer : MonoBehaviour
 {
 	public void Draw (Mesh mesh, Material material, List<Matrix4x4> matrices)
 	{
@@ -16,11 +18,12 @@ public abstract class Cloner : MonoBehaviour
 		}
 	}
 
-	private List<List<T>> Split<T> (List<T> elements, int size)
+	private List<List<T>> Split<T> (List<T> source, int size)
 	{
-		var l = new List<List<T>> ();
-		for (int i = 0; i < elements.Count; i += size)
-			l.Add (elements.GetRange (i, Mathf.Min (size, elements.Count - 1)));
-		return l;
+		return source
+			.Select ((x, i) => new { Index = i, Value = x })
+			.GroupBy (x => x.Index / size)
+			.Select (x => x.Select (v => v.Value).ToList ())
+			.ToList ();
 	}
 }
