@@ -140,12 +140,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43607986d6e243346be2eac0cadf7386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  castShadows: 1
+  receiveShadows: 1
   update: 1
   mesh: {fileID: 4300000, guid: 0af385fffec7d544fb215bdae257089e, type: 3}
   material: {fileID: 2100000, guid: c85b52e6e9740f240aa53d8f797510c5, type: 2}
-  count: {x: 15, y: 15, z: 15}
-  padding: {x: 0, y: 0, z: 0}
-  useBoundsInPadding: 1
+  count: {x: 10, y: 10, z: 10}
+  padding: {x: 1, y: 1, z: 1}
+  useBoundsInPadding: 0
 --- !u!4 &244757904
 Transform:
   m_ObjectHideFlags: 0
@@ -267,6 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1201a0c07459f0e40866c48be119e3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  castShadows: 1
+  receiveShadows: 1
   update: 1
   mesh: {fileID: 4300000, guid: 0af385fffec7d544fb215bdae257089e, type: 3}
   material: {fileID: 2100000, guid: c85b52e6e9740f240aa53d8f797510c5, type: 2}

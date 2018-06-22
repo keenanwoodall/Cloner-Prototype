@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Linq;
 using System.Collections.Generic;
-using System.Linq;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 [ExecuteInEditMode]
 public abstract class InstanceRenderer : MonoBehaviour
 {
+	public ShadowCastingMode castShadows = ShadowCastingMode.On;
+	public bool receiveShadows = true;
+
 	public void Draw (Mesh mesh, Material material, List<Matrix4x4> matrices)
 	{
 		var batches = Split (matrices, 1023);
@@ -13,7 +17,7 @@ public abstract class InstanceRenderer : MonoBehaviour
 		{
 			for (int subMeshIndex = 0; subMeshIndex < mesh.subMeshCount; subMeshIndex++)
 			{
-				Graphics.DrawMeshInstanced (mesh, subMeshIndex, material, batches[batchIndex]);
+				Graphics.DrawMeshInstanced (mesh, subMeshIndex, material, batches[batchIndex], null, castShadows, receiveShadows);
 			}
 		}
 	}

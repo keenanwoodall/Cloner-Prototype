@@ -12,6 +12,12 @@ public abstract class MeshCloner : InstanceRenderer
 	protected abstract int PointCount { get; }
 	protected abstract void CalculatePoints (ref List<Matrix4x4> points);
 
+	private void Start ()
+	{
+		if (PointCount != points.Count)
+			ResizePointsList (PointCount);
+		UpdatePointsInternal ();
+	}
 	private void Update ()
 	{
 		if (mesh == null || material == null || PointCount < 1)
