@@ -3,11 +3,9 @@ using System.Collections.Generic;
 
 public class GridCloner : MeshCloner
 {
-	public Vector3Int count = Vector3Int.one;
-	public Vector3 padding = Vector3.one;
-
-	private int oneOverXYSize;
-	private int ZYSize;
+	public Vector3Int count = new Vector3Int (3, 3, 3);
+	public Vector3 padding = Vector3.zero;
+	public bool useBoundsInPadding = true;
 
 	protected override int PointCount { get { return count.x * count.y * count.z; } }
 
@@ -16,9 +14,9 @@ public class GridCloner : MeshCloner
 		if (count.x < 0 || count.y < 0 || count.z < 0)
 			return;
 
-		float xPadding = padding.x + mesh.bounds.size.x;
-		float yPadding = padding.y + mesh.bounds.size.y;
-		float zPadding = padding.z + mesh.bounds.size.z;
+		float xPadding = padding.x + ((useBoundsInPadding) ? mesh.bounds.size.x : 0f);
+		float yPadding = padding.y + ((useBoundsInPadding) ? mesh.bounds.size.y : 0f);
+		float zPadding = padding.z + ((useBoundsInPadding) ? mesh.bounds.size.z : 0f);
 
 		for (int x = 0; x < count.x; x++)
 		{
@@ -27,7 +25,8 @@ public class GridCloner : MeshCloner
 				for (int z = 0; z < count.z; z++)
 				{
 					var index = x + count.x * (y + count.y * z);
-					points[index] = Matrix4x4.TRS (transform.position + new Vector3 (x * xPadding, y * yPadding, z * zPadding), transform.rotation, transform.localScale);
+					var p = new Vector3 (x * xPadding, y * yPadding, z * zPadding);
+					points[index] = Matrix4x4.TRS (transform.position + transform.rotation * p, transform.rotation, transform.localScale);
 				}
 			}
 		}

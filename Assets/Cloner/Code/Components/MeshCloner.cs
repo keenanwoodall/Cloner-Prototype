@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 public abstract class MeshCloner : InstanceRenderer
 {
+	public bool update = true;
 	public Mesh mesh;
 	public Material material;
 
@@ -16,10 +16,13 @@ public abstract class MeshCloner : InstanceRenderer
 	{
 		if (mesh == null || material == null || PointCount < 1)
 			return;
-		if (PointCount != points.Count)
-			ResizePointsList (PointCount);
 
-		UpdatePointsInternal ();
+		if (update)
+		{
+			if (PointCount != points.Count)
+				ResizePointsList (PointCount);
+			UpdatePointsInternal ();
+		}
 
 		Draw (mesh, material, points);
 	}
