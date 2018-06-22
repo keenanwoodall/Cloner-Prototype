@@ -16,7 +16,7 @@ public abstract class MeshCloner : InstanceRenderer
 	{
 		if (PointCount != points.Count)
 			ResizePointsList (PointCount);
-		UpdatePointsInternal ();
+		UpdatePoints ();
 	}
 	private void Update ()
 	{
@@ -27,13 +27,13 @@ public abstract class MeshCloner : InstanceRenderer
 		{
 			if (PointCount != points.Count)
 				ResizePointsList (PointCount);
-			UpdatePointsInternal ();
+			UpdatePoints ();
 		}
 
 		Draw (mesh, material, points);
 	}
 
-	private void UpdatePointsInternal ()
+	public void UpdatePoints ()
 	{
 		CalculatePoints (ref points);
 	}
