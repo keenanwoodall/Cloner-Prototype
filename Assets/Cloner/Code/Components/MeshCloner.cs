@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public abstract class MeshCloner : InstanceRenderer
 {
@@ -9,26 +10,23 @@ public abstract class MeshCloner : InstanceRenderer
 	protected List<Matrix4x4> points = new List<Matrix4x4> ();
 
 	protected abstract int PointCount { get; }
-	protected abstract List<Matrix4x4> CalculatePoints (List<Matrix4x4> points);
-	protected abstract bool ParametersChanged ();
+	protected abstract void CalculatePoints (ref List<Matrix4x4> points);
 
 	private void Update ()
 	{
-		if (mesh == null || material == null)
+		if (mesh == null || material == null || PointCount < 1)
 			return;
-
 		if (PointCount != points.Count)
 			ResizePointsList (PointCount);
 
-		if (ParametersChanged ())
-			UpdatePointsInternal ();
+		UpdatePointsInternal ();
 
 		Draw (mesh, material, points);
 	}
 
 	private void UpdatePointsInternal ()
 	{
-		points = CalculatePoints (points);
+		CalculatePoints (ref points);
 	}
 
 	private void ResizePointsList (int goalCount)

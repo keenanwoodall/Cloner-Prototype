@@ -11,16 +11,10 @@ public class LinearCloner : MeshCloner
 
 	protected override int PointCount { get { return count; } }
 
-	protected override List<Matrix4x4> CalculatePoints (List<Matrix4x4> points)
+	protected override void CalculatePoints (ref List<Matrix4x4> points)
 	{
 		spacing = Vector3.forward * (mesh.bounds.size.z + padding);
 		for (int i = 0; i < points.Count; i++)
 			points[i] = Matrix4x4.TRS (transform.position + transform.rotation * (spacing * i + Vector3.forward * offset), transform.rotation, transform.localScale);
-		return points;
-	}
-
-	protected override bool ParametersChanged ()
-	{
-		return true;
 	}
 }
