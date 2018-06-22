@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class LinearCloner : MeshCloner
+public class LinearCloner : Cloner
 {
 	public int count;
 	public float padding = 0f;

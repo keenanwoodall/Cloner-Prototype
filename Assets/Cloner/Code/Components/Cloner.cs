@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public abstract class MeshCloner : InstanceRenderer
+public abstract class Cloner : InstanceRenderer
 {
 	public bool update = true;
 	public Mesh mesh;

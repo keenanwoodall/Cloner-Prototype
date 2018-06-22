@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class GridCloner : MeshCloner
+public class GridCloner : Cloner
 {
 	public Vector3Int count = new Vector3Int (3, 3, 3);
 	public Vector3 padding = Vector3.zero;
