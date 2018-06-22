@@ -147,8 +147,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: c85b52e6e9740f240aa53d8f797510c5, type: 2}
   modifiers: []
   count: {x: 10, y: 10, z: 10}
-  padding: {x: 0, y: 0, z: 0}
-  useBoundsInPadding: 1
+  padding: {x: 2, y: 2, z: 2}
+  useBoundsInPadding: 0
 --- !u!4 &244757904
 Transform:
   m_ObjectHideFlags: 0
@@ -277,8 +277,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: c85b52e6e9740f240aa53d8f797510c5, type: 2}
   modifiers: []
   count: 10
-  padding: 1
-  useBoundsInPadding: 1
+  padding: 2
+  useBoundsInPadding: 0
   offset: 1
 --- !u!4 &1216404197
 Transform:
