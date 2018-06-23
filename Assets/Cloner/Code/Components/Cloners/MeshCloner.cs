@@ -6,14 +6,13 @@ namespace Cloner
 	public class MeshCloner : Cloner
 	{
 		public float normalOffset;
-		public Vector3 scale = Vector3.one;
 		public bool alignWithNormals;
 		public MeshFilter target;
 
 		private Vector3[] vertices;
 		private Vector3[] normals;
 
-		protected override int PointCount { get { return (target == null) ? 0 : target.mesh.vertexCount; } }
+		protected override int PointCount { get { return (target == null) ? 0 : target.sharedMesh.vertexCount; } }
 
 
 		protected override void CalculatePoints (ref List<Matrix4x4> points)
@@ -28,7 +27,7 @@ namespace Cloner
 			{
 				var position = target.transform.localToWorldMatrix.MultiplyPoint3x4 (vertices[i] + (normals[i] * normalOffset));
 				var rotation = (alignWithNormals ? (Quaternion.LookRotation (normals[i])) : Quaternion.identity);
-				points[i] = Matrix4x4.TRS (position, rotation, scale);
+				points[i] = Matrix4x4.TRS (position, rotation, Vector3.one);
 			}
 		}
 	}

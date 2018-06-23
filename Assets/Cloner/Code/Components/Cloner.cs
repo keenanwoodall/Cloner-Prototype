@@ -8,7 +8,7 @@ namespace Cloner
 		public bool update = true;
 		public Mesh mesh;
 		public Material material;
-		public List<PointModifier> modifiers;
+		public List<PointModifier> modifiers = new List<PointModifier> ();
 
 		protected List<Matrix4x4> points = new List<Matrix4x4> ();
 
