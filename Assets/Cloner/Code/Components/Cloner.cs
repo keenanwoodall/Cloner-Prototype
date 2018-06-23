@@ -23,6 +23,11 @@ namespace Cloner
 		}
 		private void Update ()
 		{
+			UpdateAll ();
+		}
+
+		public void UpdateAll ()
+		{
 			if (mesh == null || material == null || PointCount < 1)
 				return;
 
