@@ -328,7 +328,8 @@ MonoBehaviour:
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   material: {fileID: 2100000, guid: c85b52e6e9740f240aa53d8f797510c5, type: 2}
   modifiers: []
-  scale: {x: 1, y: 1, z: 1}
+  normalOffset: 1.2
+  scale: {x: 16.65, y: 37, z: 0.5}
   alignWithNormals: 1
   target: {fileID: 1964155641}
 --- !u!23 &1964155640
@@ -337,7 +338,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964155638}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -379,13 +380,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964155638}
-  m_LocalRotation: {x: -0, y: 0.26445282, z: -0, w: 0.9643986}
+  m_LocalRotation: {x: 0.20535666, y: -0.6139399, z: 0.707047, w: -0.28458926}
   m_LocalPosition: {x: 0, y: 8.86, z: -18.38}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 3, y: 3, z: 12.221205}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 30.669, z: 0}
+  m_LocalEulerAnglesHint: {x: 48.702003, y: -284.192, z: -97.327}
 --- !u!43 &1984340664
 Mesh:
   m_ObjectHideFlags: 0
