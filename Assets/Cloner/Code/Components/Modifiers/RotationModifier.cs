@@ -1,17 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationModifier : PointModifier
+namespace Cloner
 {
-	public Vector3 rotation;
-
-	public override List<Matrix4x4> Modify (List<Matrix4x4> points)
+	public class RotationModifier : PointModifier
 	{
-		var quaternion = Quaternion.Euler (rotation);
+		public Vector3 rotation;
 
-		for (int i = 0; i < points.Count; i++)
-			points[i] *= Matrix4x4.Rotate (quaternion);
+		public override List<Matrix4x4> Modify (List<Matrix4x4> points)
+		{
+			var quaternion = Quaternion.Euler (rotation);
 
-		return points;
+			for (int i = 0; i < points.Count; i++)
+				points[i] *= Matrix4x4.Rotate (quaternion);
+
+			return points;
+		}
 	}
 }

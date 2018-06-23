@@ -3,31 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-[ExecuteInEditMode]
-public abstract class InstanceRenderer : MonoBehaviour
+namespace Cloner
 {
-	public ShadowCastingMode castShadows = ShadowCastingMode.On;
-	public bool receiveShadows = true;
-
-	public void Draw (Mesh mesh, Material material, List<Matrix4x4> matrices)
+	[ExecuteInEditMode]
+	public abstract class InstanceRenderer : MonoBehaviour
 	{
-		var batches = Split (matrices, 1023);
+		public ShadowCastingMode castShadows = ShadowCastingMode.On;
+		public bool receiveShadows = true;
 
-		for (int batchIndex = 0; batchIndex < batches.Count; batchIndex++)
+		public void Draw (Mesh mesh, Material material, List<Matrix4x4> matrices)
 		{
-			for (int subMeshIndex = 0; subMeshIndex < mesh.subMeshCount; subMeshIndex++)
+			var batches = Split (matrices, 1023);
+
+			for (int batchIndex = 0; batchIndex < batches.Count; batchIndex++)
 			{
-				Graphics.DrawMeshInstanced (mesh, subMeshIndex, material, batches[batchIndex], null, castShadows, receiveShadows);
+				for (int subMeshIndex = 0; subMeshIndex < mesh.subMeshCount; subMeshIndex++)
+				{
+					Graphics.DrawMeshInstanced (mesh, subMeshIndex, material, batches[batchIndex], null, castShadows, receiveShadows);
+				}
 			}
 		}
-	}
 
-	private List<List<T>> Split<T> (List<T> source, int size)
-	{
-		return source
-			.Select ((x, i) => new { Index = i, Value = x })
-			.GroupBy (x => x.Index / size)
-			.Select (x => x.Select (v => v.Value).ToList ())
-			.ToList ();
+		private List<List<T>> Split<T> (List<T> source, int size)
+		{
+			return source
+				.Select ((x, i) => new { Index = i, Value = x })
+				.GroupBy (x => x.Index / size)
+				.Select (x => x.Select (v => v.Value).ToList ())
+				.ToList ();
+		}
 	}
 }

@@ -1,17 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ScaleModifier : PointModifier
+namespace Cloner
 {
-	public Vector3 scale = Vector3.one;
-	public float uniform = 1f;
-
-	public override List<Matrix4x4> Modify (List<Matrix4x4> points)
+	public class ScaleModifier : PointModifier
 	{
-		var s = scale * uniform;
-		for (int i = 0; i < points.Count; i++)
-			points[i] *= Matrix4x4.Scale (s);
+		public Vector3 scale = Vector3.one;
+		public float uniform = 1f;
 
-		return points;
+		public override List<Matrix4x4> Modify (List<Matrix4x4> points)
+		{
+			var s = scale * uniform;
+			for (int i = 0; i < points.Count; i++)
+				points[i] *= Matrix4x4.Scale (s);
+
+			return points;
+		}
 	}
 }
