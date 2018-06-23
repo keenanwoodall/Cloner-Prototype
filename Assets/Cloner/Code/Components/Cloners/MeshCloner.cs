@@ -5,6 +5,7 @@ namespace Cloner
 {
 	public class MeshCloner : Cloner
 	{
+		public float normalOffset;
 		public Vector3 scale = Vector3.one;
 		public bool alignWithNormals;
 		public MeshFilter target;
@@ -25,9 +26,7 @@ namespace Cloner
 
 			for (int i = 0; i < points.Count; i++)
 			{
-				var position = target.transform.rotation * (vertices[i]);
-				position.Scale (target.transform.localScale);
-				position += target.transform.position;
+				var position = target.transform.localToWorldMatrix.MultiplyPoint3x4 (vertices[i] + (normals[i] * normalOffset));
 				var rotation = (alignWithNormals ? (Quaternion.LookRotation (normals[i])) : Quaternion.identity);
 				points[i] = Matrix4x4.TRS (position, rotation, scale);
 			}
