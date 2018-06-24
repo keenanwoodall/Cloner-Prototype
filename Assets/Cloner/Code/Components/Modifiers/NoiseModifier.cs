@@ -16,6 +16,7 @@ namespace Cloner
 		public Vector3 scaleBias = Vector3.one;
 		public Vector3 scaleEffect = Vector3.zero;
 		public bool lookAlongDerivative = true;
+		public bool local = true;
 		public FastNoise.NoiseType noiseType = FastNoise.NoiseType.SimplexFractal;
 		public FastNoise.Interp interpolation;
 
@@ -39,10 +40,14 @@ namespace Cloner
 			noise.SetFractalGain (gain);
 
 			var upRotation = Quaternion.Euler (90f, 0f, 0f);
+			var worldToLocal = transform.worldToLocalMatrix;
 
 			for (int i = 0; i < points.Count; i++)
 			{
 				Vector3 p = points[i].GetColumn (3);
+				if (local)
+					p = worldToLocal.MultiplyPoint3x4 (p);
+
 				var x = noise.GetNoise (p.x + t, p.y + t, p.z + t);
 				var y = noise.GetNoise (p.x + t + 1000f, p.y + t + 1000f, p.z + t + 1000f);
 				var z = noise.GetNoise (p.x + t - 1000f, p.y + t - 1000f, p.z + t - 1000f);

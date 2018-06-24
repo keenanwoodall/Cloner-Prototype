@@ -330,5 +330,6 @@ MonoBehaviour:
   scaleBias: {x: 1.5, y: 1.5, z: 4}
   scaleEffect: {x: 1, y: 1, z: 4}
   lookAlongDerivative: 1
+  local: 0
   noiseType: 0
   interpolation: 1
