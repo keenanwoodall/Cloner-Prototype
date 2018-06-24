@@ -11,9 +11,12 @@ namespace Cloner
 		public ShadowCastingMode castShadows = ShadowCastingMode.On;
 		public bool receiveShadows = true;
 
+		private List<List<Matrix4x4>> batches;
+
+
 		public void Draw (Mesh mesh, Material material, List<Matrix4x4> matrices)
 		{
-			var batches = Split (matrices, 1023);
+			batches = Split (matrices, 1023);
 
 			for (int batchIndex = 0; batchIndex < batches.Count; batchIndex++)
 			{

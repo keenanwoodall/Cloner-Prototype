@@ -16,8 +16,6 @@ namespace Cloner
 
 		protected override void CalculatePoints (ref List<Matrix4x4> points)
 		{
-			if (mesh == null)
-				return;
 			spacing = Vector3.forward * (((useBoundsInPadding) ? mesh.bounds.size.z : 0f) + padding);
 			for (int i = 0; i < points.Count; i++)
 				points[i] = Matrix4x4.TRS (transform.position + transform.rotation * (spacing * i + Vector3.forward * offset), transform.rotation, transform.localScale);

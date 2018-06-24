@@ -43,10 +43,10 @@ namespace Cloner
 			for (int i = 0; i < points.Count; i++)
 			{
 				Vector3 p = points[i].GetColumn (3);
-				var x = noise.GetNoise (p.x + t, p.x + t, p.x + t);
-				var y = noise.GetNoise (p.y + t, p.y + t, p.y + t);
-				var z = noise.GetNoise (p.z + t, p.z + t, p.z + t);
-				
+				var x = noise.GetNoise (p.x + t, p.y + t, p.z + t);
+				var y = noise.GetNoise (p.x + t + 1000f, p.y + t + 1000f, p.z + t + 1000f);
+				var z = noise.GetNoise (p.x + t - 1000f, p.y + t - 1000f, p.z + t - 1000f);
+
 				var derivative = new Vector3 (x, y, z);
 				if (derivative == Vector3.zero)
 					derivative = new Vector3 (0f, 0.0001f, 0f);

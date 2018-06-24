@@ -28,7 +28,7 @@ namespace Cloner
 
 		public void UpdateAll ()
 		{
-			if (mesh == null || material == null || PointCount < 1)
+			if (PointCount < 1)
 				return;
 
 			if (update)
@@ -38,11 +38,14 @@ namespace Cloner
 				UpdatePoints ();
 			}
 
-			Draw (mesh, material, points);
+			if (mesh != null && material != null)
+				Draw (mesh, material, points);
 		}
 
 		public void UpdatePoints ()
 		{
+			if (mesh == null || material == null)
+				return;
 			CalculatePoints (ref points);
 			for (int i = 0; i < modifiers.Count; i++)
 			{

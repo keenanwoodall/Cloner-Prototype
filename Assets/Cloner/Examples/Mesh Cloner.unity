@@ -225,16 +225,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91528154748f66e40b6f75082ca6edc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  magnitude: 5
-  frequency: 0.5
+  speed: 2
+  magnitude: 2
+  frequency: 0.2
   octaves: 1
   lacunarity: 2
   gain: 2
-  scaleBias: {x: 1, y: 1, z: 1}
-  scaleEffect: {x: 0, y: 0, z: 5}
+  scaleBias: {x: 1, y: 1, z: 10}
+  scaleEffect: {x: 0, y: 0, z: 10}
   lookAlongDerivative: 1
-  noiseType: 5
+  noiseType: 4
   interpolation: 1
 --- !u!114 &1317705095
 MonoBehaviour:
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1, z: 1}
-  uniform: 0.1
+  uniform: 0.2
 --- !u!114 &1317705096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,8 +320,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1317705092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
