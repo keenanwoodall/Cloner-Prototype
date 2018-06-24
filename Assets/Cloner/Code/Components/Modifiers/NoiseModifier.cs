@@ -48,10 +48,11 @@ namespace Cloner
 				var z = noise.GetNoise (p.x + t - 1000f, p.y + t - 1000f, p.z + t - 1000f);
 
 				var derivative = new Vector3 (x, y, z);
+				var absDerivative = new Vector3 (Mathf.Abs (x), Mathf.Abs (y), Mathf.Abs (z));
 				if (derivative == Vector3.zero)
 					derivative = new Vector3 (0f, 0.0001f, 0f);
 
-				points[i] *= Matrix4x4.TRS (derivative * magnitude, (lookAlongDerivative) ? Quaternion.LookRotation (derivative) : Quaternion.identity, scaleBias + (Vector3.Scale (scaleEffect, derivative)));
+				points[i] *= Matrix4x4.TRS (derivative * magnitude, (lookAlongDerivative) ? Quaternion.LookRotation (derivative) : Quaternion.identity, scaleBias + (Vector3.Scale (scaleEffect, absDerivative)));
 			}
 
 			return points;

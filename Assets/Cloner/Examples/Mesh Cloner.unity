@@ -205,7 +205,6 @@ GameObject:
   - component: {fileID: 1317705098}
   - component: {fileID: 1317705097}
   - component: {fileID: 1317705096}
-  - component: {fileID: 1317705095}
   - component: {fileID: 1317705094}
   m_Layer: 0
   m_Name: Sphere
@@ -231,24 +230,11 @@ MonoBehaviour:
   octaves: 1
   lacunarity: 2
   gain: 2
-  scaleBias: {x: 1, y: 1, z: 10}
-  scaleEffect: {x: 0, y: 0, z: 10}
+  scaleBias: {x: 0.25, y: 0.25, z: 0.5}
+  scaleEffect: {x: 0, y: 0, z: 0.5}
   lookAlongDerivative: 1
   noiseType: 4
   interpolation: 1
---- !u!114 &1317705095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1317705092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef2cf73c4155e14785322e262fad069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: {x: 1, y: 1, z: 1}
-  uniform: 0.2
 --- !u!114 &1317705096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +252,6 @@ MonoBehaviour:
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   material: {fileID: 2100000, guid: 3aac821c9bb032c42a6db49761e53840, type: 2}
   modifiers:
-  - {fileID: 1317705095}
   - {fileID: 1317705094}
   normalOffset: 0
   alignWithNormals: 1
