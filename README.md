@@ -1,8 +1,8 @@
 # Cloner
 
 TODO:
-Support cloning cloners.
-Multithread.
+1. Support cloning cloners.
+2. Multithread.
 
 ![Linear Cloner](https://media.giphy.com/media/9Y01BDZ9lqSjMAYcFd/giphy.gif)
 ![Grid Cloner](https://media.giphy.com/media/836ZQtyRUANummNjy6/giphy.gif)
