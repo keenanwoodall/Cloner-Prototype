@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1247608233}
-  m_IndirectSpecularColor: {r: 0.44657952, g: 0.49641407, b: 0.57481736, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028432, g: 0.22571494, b: 0.30692348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905681068}
   - component: {fileID: 905681067}
+  - component: {fileID: 905681069}
   m_Layer: 0
   m_Name: Linear Cloner
   m_TagString: Untagged
@@ -145,9 +146,10 @@ MonoBehaviour:
   update: 1
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   material: {fileID: 2100000, guid: 3aac821c9bb032c42a6db49761e53840, type: 2}
-  modifiers: []
-  count: 36
-  padding: 1.81
+  modifiers:
+  - {fileID: 905681069}
+  count: 100
+  padding: 1
   useBoundsInPadding: 0
   offset: 0
 --- !u!4 &905681068
@@ -163,6 +165,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &905681069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905681066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9a9987a667d5540a3987d5432e96d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  offset: 0
+  along: 1
+  by: 2
+  sin:
+    amplitude: 2
+    frequency: 0.5
 --- !u!1 &1247608232
 GameObject:
   m_ObjectHideFlags: 0
