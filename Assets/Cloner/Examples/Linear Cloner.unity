@@ -149,8 +149,8 @@ MonoBehaviour:
   modifiers:
   - {fileID: 905681069}
   count: 100
-  padding: 1
-  useBoundsInPadding: 0
+  padding: 0
+  useBoundsInPadding: 1
   offset: 0
 --- !u!4 &905681068
 Transform:
