@@ -220,16 +220,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1422164090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b9a9987a667d5540a3987d5432e96d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 91528154748f66e40b6f75082ca6edc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  offset: 0
-  along: 0
-  by: 1
-  sin:
-    amplitude: 1
-    frequency: 3
+  speed: 0.1
+  magnitude: 1
+  frequency: 1
+  octaves: 2
+  lacunarity: 2
+  gain: 2
+  scaleBias: {x: 1, y: 1, z: 1}
+  scaleEffect: {x: 0, y: 0, z: 0}
+  lookAlongDerivative: 1
+  local: 1
+  noiseType: 5
+  interpolation: 0
 --- !u!114 &1422164092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,8 +266,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 3aac821c9bb032c42a6db49761e53840, type: 2}
   modifiers:
   - {fileID: 1422164092}
-  - {fileID: 1422164091}
-  count: 20
+  count: 17
   align: 1
   spline: {fileID: 1881553329}
 --- !u!4 &1422164094
@@ -380,12 +384,12 @@ MonoBehaviour:
   - {x: 6.75, y: 0, z: -6}
   - {x: 6.75, y: 0, z: 0}
   - {x: 6.75, y: 0, z: 6}
-  - {x: 4.75, y: 0, z: 2}
+  - {x: 5, y: 0, z: 2}
   - {x: 3.75, y: 0, z: 2}
-  - {x: 2.75, y: 0, z: 2}
+  - {x: 2.5, y: 0, z: 2}
   - {x: 0.75, y: 1, z: 3}
   - {x: 0.75, y: 1, z: 0}
-  controlModes: 0200000002000000020000000100000002000000
+  controlModes: 0200000002000000020000000200000002000000
   loop: 1
 --- !u!4 &1881553330
 Transform:
