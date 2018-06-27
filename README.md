@@ -1,8 +1,5 @@
 # Cloner
-
-TODO:
-1. Support cloning cloners.
-2. Multithread.
+Not crazy performant, but easy and fun to mess with
 
 ![Mesh Cloner 1](https://media.giphy.com/media/55f9C9ICGDXc7G3O5S/giphy.gif)
 ![Skinned Mesh Cloner](https://media.giphy.com/media/3tFeieI0S88nPvDOoH/giphy.gif)
