@@ -1,4 +1,4 @@
-# Cloner
+# Mesh Instancing
 Not crazy performant, but easy and fun to mess with
 
 ![Mesh Cloner 1](https://media.giphy.com/media/55f9C9ICGDXc7G3O5S/giphy.gif)
